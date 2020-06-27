@@ -1,0 +1,35 @@
+#include <iostream>
+ using namespace std;
+void insertionSort(int arr[]) {	//to sort this array
+	int x; 
+	int size = sizeof(arr);
+	for (int i = 1; i < size; i++) {
+		for (int j = 0; j < i; j++)
+		{
+			if ( arr[i] < arr[j] )
+			{
+				x = arr[i];
+				arr[i] = arr[j];
+				arr[j] = x;
+			}
+		}
+	}
+}
+int Binarysearch(int arr[] ,int element) {
+			int left = 0 , rigth = 0;
+			int size = sizeof(arr)/sizeof(arr[0]);
+			insertionSort(arr); //sort array //1,2,3,4,5,6,7
+			while ( left <= rigth )
+			{	int med = size / 2 + 1; //to get mediam
+				if (element == arr[med]) return med;
+				if (arr[med] < element) left = med + 1;
+				if(arr[med] > element ) rigth = med - 1;
+			}
+			return -1;
+		}
+int main() 
+{
+	 int arr[]={2,3,4,5,6,7,1};
+	cout<<Binarysearch(arr,7);
+	return 0;
+}
